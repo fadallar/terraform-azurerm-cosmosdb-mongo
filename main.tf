@@ -11,7 +11,6 @@ resource "azurerm_cosmosdb_account" "example" {
     access_key_metadata_writes_enabled = var.access_key_metadata_writes_enabled
     local_authentication_disabled = var.local_authentication_disabled
 
-    #------   Public Access and Filtering -------------------
     public_network_access_enabled = var.public_network_access_enabled
     is_virtual_network_filter_enabled  = var.is_virtual_network_filter_enabled
     network_acl_bypass_for_azure_services = var.network_acl_bypass_for_azure_services
@@ -25,7 +24,7 @@ resource "azurerm_cosmosdb_account" "example" {
         ignore_missing_vnet_service_endpoint = virtual_network_rule.value.ignore_missing_vnet_service_endpoint
       }
     }
-    #----------  Geo- Redundanccy --------------------------------------------
+    
     enable_automatic_failover = var.enable_automatic_failover
     enable_multiple_write_locations = var.enable_multiple_write_locations
 
