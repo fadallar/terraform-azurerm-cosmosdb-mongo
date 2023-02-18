@@ -43,7 +43,7 @@ resource "azurerm_cosmosdb_account" "example" {
     }
   }
 
-  dynamic consistency_policy {
+  dynamic "consistency_policy" {
     consistency_level       = var.consistency_policy_level
     max_interval_in_seconds = var.consistency_policy_max_interval_in_seconds
     max_staleness_prefix    = var.consistency_policy_max_staleness_prefix
