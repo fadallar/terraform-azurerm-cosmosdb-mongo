@@ -16,7 +16,6 @@ resource "azurerm_cosmosdb_account" "example" {
     is_virtual_network_filter_enabled  = var.is_virtual_network_filter_enabled
     network_acl_bypass_for_azure_services = var.network_acl_bypass_for_azure_services
     ip_range_filter = join(",", var.allowed_cidrs)
-    is_virtual_network_filter_enabled     = var.is_virtual_network_filter_enabled
     network_acl_bypass_ids                = var.network_acl_bypass_ids
     dynamic "virtual_network_rule" {
     for_each = var.virtual_network_rule != null ? toset(var.virtual_network_rule) : []
@@ -44,7 +43,7 @@ resource "azurerm_cosmosdb_account" "example" {
     }
   }
 
-  consistency_policy {
+  dynamic consistency_policy {
     consistency_level       = var.consistency_policy_level
     max_interval_in_seconds = var.consistency_policy_max_interval_in_seconds
     max_staleness_prefix    = var.consistency_policy_max_staleness_prefix
