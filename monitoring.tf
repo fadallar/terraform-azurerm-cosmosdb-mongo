@@ -6,7 +6,7 @@ data "azurerm_monitor_diagnostic_categories" "diagcategories" {
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostics" {
   name                       = var.monitor_default_diagnostic_setting_name
-  target_resource_id         = azurerm_container_registry.registry.id
+  target_resource_id         = azurerm_cosmosdb_account.cosmosdb_account.id
   log_analytics_workspace_id = var.diag_log_analytics_workspace_id
 
   dynamic "metric" {

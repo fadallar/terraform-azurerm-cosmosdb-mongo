@@ -1,4 +1,4 @@
-resource "azurerm_cosmosdb_account" "example" {
+resource "azurerm_cosmosdb_account" "cosmosdb_account" {
     name                      = local.name
     location                  = var.location
     resource_group_name       = var.resource_group_name
@@ -24,7 +24,7 @@ resource "azurerm_cosmosdb_account" "example" {
         ignore_missing_vnet_service_endpoint = virtual_network_rule.value.ignore_missing_vnet_service_endpoint
       }
     }
-    
+
     enable_automatic_failover = var.enable_automatic_failover
     enable_multiple_write_locations = var.enable_multiple_write_locations
 
