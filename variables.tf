@@ -50,6 +50,7 @@ variable "mongo_server_version" {
     validation {
         condition     = try(contains(["4.2", "4.0", "3.6","3.2"], var.mongo_server_version),true)
         error_message = ""
+    }
 }
 
 variable "network_acl_bypass_for_azure_services" {
