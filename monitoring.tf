@@ -1,7 +1,7 @@
 // Please check issue https://github.com/hashicorp/terraform-provider-azurerm/issues/17172
 
 data "azurerm_monitor_diagnostic_categories" "diagcategories" {
-  resource_id = azurerm_container_registry.registry.id
+  resource_id = azurerm_cosmosdb_account.cosmosdb_account.id
 }
 
 resource "azurerm_monitor_diagnostic_setting" "diagnostics" {
