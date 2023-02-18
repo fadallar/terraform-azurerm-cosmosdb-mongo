@@ -181,3 +181,9 @@ variable "identity_type" {
   type        = string
   default     = "SystemAssigned"
 }
+
+variable "public_network_access_enabled" {
+  description = "Enable public access"
+  type = bool
+  default = false
+}

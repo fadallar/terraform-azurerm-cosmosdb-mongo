@@ -4,7 +4,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb_account" {
     resource_group_name       = var.resource_group_name
     offer_type                = "Standard"  ## Only options available
     kind                      = "MongoDB"
-    mongo_server_version = var.kind == "MongoDB"
+    mongo_server_version = "MongoDB"
     
     create_mode = var.create_mode
     default_identity_type = var.default_identity_type
