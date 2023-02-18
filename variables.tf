@@ -1,19 +1,13 @@
 variable "create_mode" {
     description = "The creation mode for the CosmosDB Account. Possible values are Default and Restore. Changing this forces a new resource to be created."
-    type = "string"
+    type = string
     default = "Default"  #Create_mode only works when backup.type is Continuous
-}
-
-variable "kind" {
-    description = "Specifies the Kind of CosmosDB to create - possible values are GlobalDocumentDB, MongoDB and Parse"
-    type = "string"
-    default = "GlobalDocumentDB"
 }
 
 variable "default_identity_type" {
     description =  "The default identity for accessing Key Vault. Possible values are FirstPartyIdentity, SystemAssignedIdentity, UserAssignedIdentity."
     default = "UserAssignedIdentity"
-    type = "string"
+    type = string
 }
 
 variable "enable_automatic_failover" {
@@ -51,18 +45,6 @@ variable "mongo_server_version" {
         condition     = try(contains(["4.2", "4.0", "3.6","3.2"], var.mongo_server_version),true)
         error_message = ""
     }
-}
-
-variable "network_acl_bypass_for_azure_services" {
-  description = "If azure services can bypass ACLs."
-  type        = bool
-  default     = false
-}
-
-variable "enable_multiple_write_locations" {
-    description = "Enable multiple write locations for this Cosmos DB account."
-    type = bool
-    default = false
 }
 
 variable "access_key_metadata_writes_enabled" {
