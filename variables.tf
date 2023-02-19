@@ -108,7 +108,7 @@ variable "geo_locations" {
   type        = any
   default = [
     {
-      geo_location      = "eastus"
+      geo_location      = "westeurope"
       failover_priority = 0
       zone_redundant    = false
     },
