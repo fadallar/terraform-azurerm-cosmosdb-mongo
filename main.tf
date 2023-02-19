@@ -6,7 +6,7 @@ resource "azurerm_cosmosdb_account" "cosmosdb_account" {
     kind                      = "MongoDB"
     mongo_server_version = var.mongo_server_version
     
-    create_mode = var.create_mode
+    #create_mode = var.create_mode
     default_identity_type = var.default_identity_type
     access_key_metadata_writes_enabled = var.access_key_metadata_writes_enabled
     local_authentication_disabled = var.local_authentication_disabled
