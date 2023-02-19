@@ -23,11 +23,11 @@ variable "stack" {
   type        = string
 }
 
-variable "create_mode" {
-    description = "The creation mode for the CosmosDB Account. Possible values are Default and Restore. Changing this forces a new resource to be created."
-    type = string
-    default = "Default"  #Create_mode only works when backup.type is Continuous
-}
+#variable "create_mode" {
+#    description = "The creation mode for the CosmosDB Account. Possible values are Default and Restore. Changing this forces a new resource to be created."
+#    type = string
+#    default = "Default"  #Create_mode only works when backup.type is Continuous
+#}
 
 variable "default_identity_type" {
     description =  "The default identity for accessing Key Vault. Possible values are FirstPartyIdentity, SystemAssignedIdentity, UserAssignedIdentity."
