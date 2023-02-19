@@ -103,10 +103,16 @@ variable "zone_redundancy_enabled" {
   default     = true
 }
 
-variable "failover_locations" {
-  description = "The name of the Azure region to host replicated data and their priority."
-  type        = map(map(string))
-  default     = null
+variable "geo_locations" {
+  description = "List of map of geo locations and other properties to create primary and secodanry databasees."
+  type        = any
+  default = [
+    {
+      geo_location      = "eastus"
+      failover_priority = 0
+      zone_redundant    = false
+    },
+  ]
 }
 
 variable "capabilities" {

@@ -29,11 +29,11 @@ resource "azurerm_cosmosdb_account" "cosmosdb_account" {
     enable_multiple_write_locations = var.enable_multiple_write_locations
 
     dynamic "geo_location" {
-      for_each = var.failover_locations != null ? var.failover_locations : {}
+      for_each = var.geo_locations
       content {
-        location          = geo_location.value.location
-        failover_priority = lookup(geo_location.value, "priority", 0)
-        zone_redundant    = lookup(geo_location.value, "zone_redundant", false)
+        location          = geo_location.value["geo_location"]
+        failover_priority = geo_location.value["failover_priority"]
+        zone_redundant    = geo_location.value["zone_redundant"]
       }
     }
   

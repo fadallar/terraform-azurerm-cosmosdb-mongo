@@ -1,4 +1,4 @@
-resource "azurerm_private_endpoint" "registrypep" {
+resource "azurerm_private_endpoint" "cosmospep" {
   count               = var.enable_private_endpoint == true ? 1 : 0
   name                = format("pe-%s", local.name)
   location            = var.location

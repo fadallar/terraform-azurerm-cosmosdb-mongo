@@ -9,4 +9,4 @@
 
 ## Related documentation
 
-Microsoft Azure documentation: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
+Microsoft Azure documentation: 
