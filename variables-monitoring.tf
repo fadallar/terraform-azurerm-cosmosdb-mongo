@@ -1,44 +1,47 @@
-# Diag settings / logs parameters
-#variable "logs_destinations_ids" {
-#  type        = list(string)
-#  description = <<EOD
-#List of destination resources IDs for logs diagnostic destination.
-#Can be `Storage Account`, `Log Analytics Workspace` and `Event Hub`. No more than one of each can be set.
-#If you want to specify an Azure EventHub to send logs and metrics to, you need to provide a formated string with both the EventHub Namespace authorization send ID and the EventHub name (name of the queue to use in the Namespace) separated by the `|` character.
-#EOD
-#}
-#
-#variable "logs_categories" {
-#  type        = list(string)
-#  description = "Log categories to send to destinations."
-#  default     = null
-#}
-#
-#variable "logs_metrics_categories" {
-#  type        = list(string)
-#  description = "Metrics categories to send to destinations."
-#  default     = null
-#}
-
-#variable "logs_retention_days" {
-#  type        = number
-#  description = "Number of days to keep logs on storage account."
-#  default     = 30
-#}
-#
-#variable "custom_diagnostic_settings_name" {
-#  description = "Custom name of the diagnostics settings, name will be 'default' if not set."
-#  type        = string
-#  default     = "default"
-#}
+variable "diag_default_setting_name" {
+  description = "Name of the diagnostics settings, name will be 'default' if not set."
+  type        = string
+  default     = "default"
+}
 
 variable "diag_log_analytics_workspace_id" {
   type        = string
   description = " Log Analytics Workspace Id for logs and metrics diagnostics destination"
 }
 
-variable "monitor_default_diagnostic_setting_name" {
-  type = string
-  description = "Name of the default diagnostic setting used by all resources"
-  default = "default-diag-settings"
+variable "diag_storage_account_id" {
+  description = " Storage Account Id for logs and metrics diagnostics destination"
+  type        = string
+  default     = null
+}
+
+variable "diag_metric_categories" {
+  description = "List of metric categories to enable in the diagnostic settings"
+  type        = list(string)
+  default     = ["Requests"]
+}
+variable "diag_log_categories" {
+  description = "List of categories to enable in the diagnostic settings"
+  type        = list(string)
+  default = [
+    "DataPlaneRequests",
+    "MongoRequests",
+    "QueryRuntimeStatistics",
+    "PartitionKeyStatistics",
+    "PartitionKeyRUConsumption",
+    "ControlPlaneRequests"
+  ]
+
+}
+
+variable "diag_retention_days" {
+  description = "The number of days for which the Retention Policy should apply"
+  type        = number
+  default     = 30
+}
+
+variable "log_analytics_destination_type" {
+  description = "Possible values are AzureDiagnostics and Dedicated. Recommended value is Dedicated"
+  type        = string
+  default     = "Dedicated"
 }
