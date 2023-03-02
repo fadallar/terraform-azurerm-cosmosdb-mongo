@@ -118,7 +118,7 @@ variable "consistency_policy_level" {
   default     = "Strong"
   validation {
     condition     = try(contains(["BoundedStaleness", "Eventual", "Session", "Strong", "ConsistentPrefix"], var.consistency_policy_level), true)
-    error_message = "Invalid variable: ${var.mongo_server_version}. Allowed values are `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`"
+    error_message = "Invalid variable: ${var.consistency_policy_level}. Allowed values are `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`"
   }
 }
 
