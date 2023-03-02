@@ -57,7 +57,7 @@ variable "enable_multiple_write_locations" {
 variable "mongo_server_version" {
   description = "The Server Version of a MongoDB account. Possible values are 4.2, 4.0, 3.6, and 3.2."
   type        = string
-  default     = null
+  default     = 4.2
   validation {
     condition     = try(contains(["4.2", "4.0", "3.6", "3.2"], var.mongo_server_version), true)
     error_message = "Invalid variable: ${var.mongo_server_version}. Allowed values are 4.3, 4.0, 3.6, 3.2 "
