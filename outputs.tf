@@ -15,7 +15,7 @@ output "endpoint" {
 
 output "read_endpoints" {
     description = "A list of read endpoints available for this CosmosDB account."
-    value = azurerm_cosmosdb_account.cosmosdb_account.
+    value = azurerm_cosmosdb_account.cosmosdb_account.read_endpoints
 }
 
 output "write_endpoints" {
