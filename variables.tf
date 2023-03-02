@@ -37,7 +37,7 @@ variable "default_identity_type" {
   type        = string
   validation {
     condition     = try(contains(["FirstPartyIdentity", "SystemAssignedIdentity", "UserAssignedIdentity"], var.default_identity_type), true)
-    error_message = "Invalid variable: ${var.default_identity_type}. Allowed values are FirstPartyIdentity, SystemAssignedIdentity, UserAssignedIdentity "
+    error_message = "Invalid variable: default_identity_type. Allowed values are FirstPartyIdentity, SystemAssignedIdentity, UserAssignedIdentity "
   }
 }
 
