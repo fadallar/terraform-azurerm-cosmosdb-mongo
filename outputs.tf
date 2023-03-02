@@ -40,7 +40,7 @@ output "primary_readonly_key" {
     value = azurerm_cosmosdb_account.cosmosdb_account.primary_readonly_key
 }
 
-ouput "secondary_readonly_key" {
+output "secondary_readonly_key" {
     description = "The Secondary read-only key for the CosmosDB Account"
     value = azurerm_cosmosdb_account.cosmosdb_account.secondary_readonly_key
 
