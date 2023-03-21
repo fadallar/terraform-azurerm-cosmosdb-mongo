@@ -73,7 +73,7 @@ variable "key_vault_key_id" {
 variable "access_key_metadata_writes_enabled" {
   description = "Is write operations on metadata resources (databases, containers, throughput) via account keys enabled?"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "local_authentication_disabled" {
@@ -89,7 +89,7 @@ variable "zone_redundancy_enabled" {
 }
 
 variable "geo_locations" {
-  description = "List of map of geo locations and other properties to create primary and secodanry databases."
+  description = "List of map of geo locations and other properties to create primary and secondary databases."
   type        = any
   default = [
     {
